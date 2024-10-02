@@ -20,18 +20,23 @@ void read_vint(vint& v, int size=0){if (size==0){size=v.size();} for(int i=0; i<
 void show_vint(vint& v, int size=0){if (size==0){size=v.size();} for(int i=0; i<size; i++){cout << v[i] << " ";}}
 
 void solve() {
-    int n; cin >> n; 
+    int n, a; cin >> n >> a; 
 
-    vint v(n);
+    int v[n][a];
 
     for(int i=0; i<n; i++) {
-        cin >> v[i];
+        for(int j=0; j<a; j++) {
+            cin >> v[i][j];
+        }
     }
 
-    sort(v.begin(), v.end());
+    sort(v, v+n);
 
     for(int i=0; i<n; i++) {
-        cin << v[i];
+        for(int j=0; j<a; j++) {
+            cout << v[i][j] << " ";
+        }
+        cout << "\n";
     }
 }
 
